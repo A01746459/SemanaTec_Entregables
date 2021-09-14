@@ -72,13 +72,21 @@ def move():
 
     square(food.x, food.y, 9, 'green')
     update()
-    ontimer(move, 100)
+    ontimer(move, v)
 
 def tap(x,y):
     "change the food with a click"
     global food
     food.x = randrange(-15, 15)* 10
     food.y = randrange(-15, 15)* 10
+    
+v=input('Que velocidad desea?: baja media alta \n ')
+if v=="baja":
+  v=150
+elif v=="media":
+  v=100
+elif v=="alta":
+  v=50
 
 setup(420, 420, 370, 0)
 hideturtle()
