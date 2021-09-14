@@ -39,7 +39,7 @@ def move():
         square(head.x, head.y, 9, 'red')
         update()
         return
-    
+    #Creamos una función que limita a la serpiente de cruzar un borde y rebota a la distancia contraria
     if head.x==190:
         change(0,-20)
         change(-10,0)
@@ -74,18 +74,18 @@ def move():
     update()
     ontimer(move, v)
 
-def tap(x,y):
+def tap(x,y): #Función que permite agregar movimientos de la comida al hacer un click
     "change the food with a click"
     global food
     food.x = randrange(-15, 15)* 10
     food.y = randrange(-15, 15)* 10
     
-v=input('Que velocidad desea?: baja media alta \n ')
-if v=="baja":
+v=input('Elija una de las siguientes velocidades: baja/media/alta \n ') #Permite al usuario elegir su velocidad
+if v=="baja" or "Baja":
   v=150
-elif v=="media":
+elif v=="media" or "Media":
   v=100
-elif v=="alta":
+elif v=="alta" or "Alta":
   v=50
 
 setup(420, 420, 370, 0)
