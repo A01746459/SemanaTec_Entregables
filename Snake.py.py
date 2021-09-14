@@ -34,11 +34,27 @@ def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
     head.move(aim)
-
-    if not inside(head) or head in snake:
+    
+    if head in snake:
         square(head.x, head.y, 9, 'red')
         update()
         return
+    
+    if head.x==190:
+        change(0,-20)
+        change(-10,0)
+        
+    if head.y==-200:
+        change(-20,0)
+        change(0,10)
+        
+    if head.x==-200:
+        change(0,20)
+        change(10,0)
+        
+    if head.y==200:
+        change(20,0)
+        change(0,-10)
 
     snake.append(head)
 
