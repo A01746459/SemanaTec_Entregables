@@ -91,8 +91,8 @@ def HCR_animacion(P): #Función para mover lo que hay en la animación
                     x += vel #Removemos la distancia de x y lo agregamos a la velocidad
                     redrawGameWindow(direction, p1, p2)
                     pygame.time.delay(70)
-                move += 3 #Agregamos 3 al valor de movimiento
-                Disembark_characters(Side_B, p1, p2)  #Llamamos a la función para que desenbarquen todos los personajes a la vez en el lado correspondiente
+                move += 3
+                Disembark_characters(Side_B, p1, p2)
         else:
             redrawGameWindow ('Standby','Unknown', 'Unknown') 
         
