@@ -91,54 +91,54 @@ def HCR_animacion(P):
                     x += vel
                     redrawGameWindow(direction, p1, p2)
                     pygame.time.delay(70)
-                move += 3
-                Disembark_characters(Side_B, p1, p2)
-        else:
-            redrawGameWindow ('Standby','Unknown', 'Unknown')
+                move += 3#Se le suma al valor de move un 3
+                Disembark_characters(Side_B, p1, p2)#Se toma la posicion final, p1 y p2 y se usan en la funcion de desembarque
+        else:#Caso ontrario
+            redrawGameWindow ('Standby','Unknown', 'Unknown')#Se usa standby y dos desconocidos para ejecutar la funcion
         
 
-    pygame.quit()
+    pygame.quit()#Se cierra pygame
 
-def Busca_solucion():
-    P = HCRfinal.HCR()
-    while len(P) > 22:
+def Busca_solucion():#Funcion para la busqueda de la solucion mas optima
+    P = HCRfinal.HCR()#Se guarda la funcion del codigo de la solucion en una variable 
+    while len(P) > 22:#El while nos permite no terminar el ciclo hasta optener la solucion mas optima
     #while len(P) > 42:
-        HCRfinal.reiniciar_sistema()
-        print ('\nBuscando una mejor solución, Longitud del Path', len(P))
-        P = HCRfinal.HCR()
-    print (P)
-    print (len(P))
-    print ('\n =====> Solución encontrada:')
-    return (P)
+        HCRfinal.reiniciar_sistema()#Se usa la funcion del codigo de la solucion para reiciar el proceso
+        print ('\nBuscando una mejor solución, Longitud del Path', len(P))#Se imprimen las soluciones mas optimas
+        P = HCRfinal.HCR()#La funcion del codigo de la solucion se guarda en una variable
+    print (P)#Se imprime la solucion
+    print (len(P))#Imprime el tamaño de la lista para saber el si el numero es optimo(En este caso se busca 21)
+    print ('\n =====> Solución encontrada:')#Imprime mensaje de que la solucion fue encontrada 
+    return (P)#Regresa la solucion
 
  
             
-P = Busca_solucion()
-print ('Aquí su animación')
+P = Busca_solucion()#Guardamos la funcionde buscar solucion en una variable 
+print ('Aquí su animación')#Imprimimos un mensaje de inicio de la animacion
 
-pygame.init()
+pygame.init()#Inicia los modulos importados de Pygame
 
-win = pygame.display.set_mode((500,500))
-pygame.display.set_caption("How to Cross the River")
+win = pygame.display.set_mode((500,500))#Proporciones de la animacion
+pygame.display.set_caption("How to Cross the River")#Titulo de la animacion
 
-BoatRight   = pygame.image.load('BoteRight.png')
-BoatLeft    = pygame.image.load('BoteLeft.png')
-bg          = pygame.image.load('seaL.png')
-char        = pygame.image.load('BoteRight.png')
-fox         = pygame.image.load('fox.png')
-corn        = pygame.image.load('corn.png')
-duck        = pygame.image.load('duck.png')
-farmer      = pygame.image.load('farmer.png')
-x       = 10
-y       = 425
-vel     = 5
-left    = False
-right   = False
+BoatRight   = pygame.image.load('BoteRight.png')#Usando el comando de image load obtenemos la imagen del bote a la derecha
+BoatLeft    = pygame.image.load('BoteLeft.png')#Usando el comando de image load obtenemos la imagen del bote a la izquierda
+bg          = pygame.image.load('seaL.png')#Usando el comando de image load obtenemos la imagen del rio
+char        = pygame.image.load('BoteRight.png')#Usando el comando de image load obtenemos la imagen del bote a la derecha
+fox         = pygame.image.load('fox.png')#Usando el comando de image load obtenemos la imagen del zorro
+corn        = pygame.image.load('corn.png')#Usando el comando de image load obtenemos la imagen del maiz
+duck        = pygame.image.load('duck.png')#Usando el comando de image load obtenemos la imagen del pato 
+farmer      = pygame.image.load('farmer.png')#Usando el comando de image load obtenemos la imagen del granejero
+x       = 10#Posicion inicial en x
+y       = 425#Posicion inicial en y
+vel     = 5#Velocidad de la animacion
+left    = False#variable izquierda con booleano falso
+right   = False#variable derecha con booleano falso
 
-Side_A = [farmer, fox, duck, corn]
-Side_B = []
+Side_A = [farmer, fox, duck, corn]#Posicion inicial
+Side_B = []#Posicion final
 
-HCR_animacion(P)
+HCR_animacion(P)#Funcion de la animacion llamando a varible con funcion de la solucion dentro
 
 
 
