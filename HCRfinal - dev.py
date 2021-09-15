@@ -23,30 +23,30 @@ def Viaje(F, D):#Esta función indica los cambios que hará cuando el granjero r
     #print (D)
     return ('Granjero',p1)
 
-def valida_estado(L):
+def valida_estado(L): #Creamos una función que constantemente cheque si es una solución posible.
     if 'Maiz' in L and 'Ganzo' in L and len(L) == 2:
-        return False
+        return False #Nos arrojará un false, debido a que si el ganzo y maíz se quedan sólos la solución es incorrecta ya que el ganzo se come el maíz.
     elif 'Zorro' in L and 'Ganzo' in L and len(L) == 2:
-        return False
-    return True
+        return False #Nos arrojará un false, debido a que si el ganzo y zorro se quedan sólos la solución es incorrecta ya que el zorro se come al ganzo.
+    return True# Si ninguna de estas dos situaciones sucede, podemos continuar con el programa, y nos arroja un True.
 
-def reiniciar_sistema():
-    global Lado_A, Lado_B, Path
+def reiniciar_sistema(): #Esta función hace un reinicio para que podamos intentar otra solución.
+    global Lado_A, Lado_B, Path #Llamamos a las variables de los lados y el camino.
     
-    Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']
-    Lado_B = []
-    Path = []
+    Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz'] #El lado A siempre que reiniciemos contiene a todos los personajes.
+    Lado_B = [] #El lado B no tiene ningun personaje ya que reiniciamos.
+    Path = [] #Ningun personaje se encuentra moviendose ya que reinicamos.
     
 
-def HCR():
-    F = Lado_A
-    D = Lado_B
-    while len(Lado_B) != 4:
+def HCR(): #La función que va a crear el camino del acertijo.
+    F = Lado_A #F es el lado donde iniciamos, así que hacemos igual a lado A.
+    D = Lado_B #D es el lado al que queremos cruzar , así que hacemos igual a lado B.
+    while len(Lado_B) != 4: #Siempre que nuestro destino no contenga a los cuatro personajes.
         p1, p2 = Viaje(F, D)
         if valida_estado (F) and valida_estado (D):
-            #print ('Estado valido, continuamos')
+            #Esto permite que confirmemos que es una solución, por lo que seguimos
             if F == Lado_A:
-                Path.append('A->B :')
+                Path.append('A->B :') #Esta funcion hace que cuando en el camino queramos viajar de A hacia B sea permitido
             else:#Caso contrario
                 Path.append('B->A :')#si no se cumple el if anterior se agrega de la siguiente manera
             Path.append(p1)#se agrega a la solucion personaje 1
