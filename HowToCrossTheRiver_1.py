@@ -11,6 +11,7 @@ def seleccion(L):#Esta es una función para dar numero aleatorios de 0 a el tama
 
 def Viaje(F, D):#Esta función indica los cambios que hará cuando el granjero realice cada viaje entre la fuente y el destino. 
     p1 = seleccion(F) #El granjero es el que va a acompañar a cada miembro del juego, por lo que va a estar en constante cambio entre la fuente y el destino.
+    #print ('Selección -> ', p1)
     if p1 != 'Granjero': #Si la fuente es diferente al granjero, significa que el granjero ya no se encuentra en la fuente sino en el destino. 
         F.remove(p1) #ya no está en la fuente.
         D.append(p1) #se encuentra ahora en el destino. 
