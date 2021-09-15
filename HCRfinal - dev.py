@@ -44,7 +44,7 @@ def HCR(): #La función que va a crear el camino del acertijo.
     while len(Lado_B) != 4: #Siempre que nuestro destino no contenga a los cuatro personajes.
         p1, p2 = Viaje(F, D)
         if valida_estado (F) and valida_estado (D):
-            print ('Estado valido, continuamos') #Esto permite que confirmemos que es una solución, por lo que seguimos
+            #Esto permite que confirmemos que es una solución, por lo que seguimos
             if F == Lado_A:
                 Path.append('A->B :') #Esta funcion hace que cuando en el camino queramos viajar de A hacia B sea permitido
             else:
