@@ -74,9 +74,9 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 10, y+10)
+        goto(x + 10, y+10) #Se centra el texto en la ficha
         color('black')
-        write(tiles[mark], font=('Arial', 20, 'normal'))
+        write(tiles[mark], font=('Arial', 20, 'normal')) #se cambia el tamaño del texto de las fichas para que entre en el espacio
 
     update()
     ontimer(draw, 100)
