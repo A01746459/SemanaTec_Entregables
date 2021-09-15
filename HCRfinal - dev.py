@@ -1,21 +1,21 @@
 
 import random
 
-Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']
-Lado_B = []
-Path = []
+Lado_A = ['Granjero', 'Zorro', 'Ganzo', 'Maiz']#indica que todas los miembros del juego se encuentran en el lado A inicial.
+Lado_B = []#indica que el lado B "destino final" se encuentra vacio. 
+Path = []#inidca que el "Path" igualmente se encuentra vacio. 
 
-def seleccion(L):
+def seleccion(L):#Esta es una función para dar numero aleatorios de 0 a el tamaño de la muestra -1. 
     op = random.randint(0,len(L)-1)
     return (L[op])
 
-def Viaje(F, D):
-    p1 = seleccion(F)
+def Viaje(F, D):#Esta función indica los cambios que hará cuando el granjero realice cada viaje entre la fuente y el destino. 
+    p1 = seleccion(F) #El granjero es el que va a acompañar a cada miembro del juego, por lo que va a estar en constante cambio entre la fuente y el destino.
     #print ('Selección -> ', p1)
-    if p1 != 'Granjero':
-        F.remove(p1)
-        D.append(p1)
-
+    if p1 != 'Granjero': #Si la fuente es diferente al granjero, significa que el granjero ya no se encuentra en la fuente sino en el destino. 
+        F.remove(p1) #ya no está en la fuente.
+        D.append(p1) #se encuentra ahora en el destino. 
+    #elimina el texto.
     F.remove('Granjero')
     D.append('Granjero')
 
