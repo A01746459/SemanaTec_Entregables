@@ -47,31 +47,31 @@ def HCR():
             #print ('Estado valido, continuamos')
             if F == Lado_A:
                 Path.append('A->B :')
-            else:
-                Path.append('B->A :')
-            Path.append(p1)
-            Path.append(p2)
+            else:#Caso contrario
+                Path.append('B->A :')#si no se cumple el if anterior se agrega de la siguiente manera
+            Path.append(p1)#se agrega a la solucion personaje 1
+            Path.append(p2)#se agrega a la solucion personaje 2
             
-            Temp = F
-            F = D
-            D = Temp      
+            Temp = F#Se hace un cambio de fuente destino a una variable temporal
+            F = D#F es igual al destino 
+            D = Temp#Destino es igual al temporal      
         else:
             #print ('Estado inválido, REINICIO DEL SISTE;A')
-            reiniciar_sistema()
-            F = Lado_A
-            D = Lado_B
+            reiniciar_sistema()#si el estado no es valido se reincia con la funcion reiniciar_sistema
+            F = Lado_A#vuelve a 0
+            D = Lado_B#vuelve a 0
     return (Path)
 
 
-def main():
-    P = HCR()
-    while len(P) > 22:
-        reiniciar_sistema()
-        print ('\nBuscando una mejor solución, Longitud del Path', len(P))
-        P = HCR()
-    print (P)
-    print (len(P))
+def main():#funcion principal para llama a las demas funciones
+    P = HCR()#La funcion se guarda en una variable
+    while len(P) > 22:#Nos permite comprobar infinitas veces hasta llegar al resultado optimo
+        reiniciar_sistema()#reinicia el sistema
+        print ('\nBuscando una mejor solución, Longitud del Path', len(P))#se imprime las soluciones hasta encontrar la mas optima
+        P = HCR()#La funcion se guarda en una variable
+    print (P)#imprime la variable con la funcion
+    print (len(P))#Imprime el tamaño de la lista para saber el si el numero es optimo(En este caso se busca 21)
             
-main()
+main()#se llama a la funcion principal
 
   
