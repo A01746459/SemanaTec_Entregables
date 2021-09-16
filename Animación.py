@@ -2,49 +2,49 @@ import HCRfinal
 
 import pygame
 
-def redrawGameWindow(Dir, p1, p2):
-    global x, y, Side_A, Side_B
+def redrawGameWindow(Dir, p1, p2):#funcion de los lados A y B de la animación
+    global x, y, Side_A, Side_B #asigna variables globales a x, y, side a y b
             
-    win.blit(bg,(0,0))
-    ypos = 300
-    for item in Side_A:
-        win.blit(item,(5,ypos))
-        ypos = ypos - 60
+    win.blit(bg,(0,0))#define posiciones iniciales
+    ypos = 300#define posiciones iniciales
+    for item in Side_A:#mientras el personajes se encuentre en el lado A
+        win.blit(item,(5,ypos))#posicion
+        ypos = ypos - 60#resta 60
 
     ypos = 300
-    for item in Side_B:
-        win.blit(item,(450,ypos))
-        ypos = ypos - 60
+    for item in Side_B:#mientras el personajes se encuentre en el lado B
+        win.blit(item,(450,ypos))#posicion
+        ypos = ypos - 60#se resta 60
 
-    if p1 != 'Unknown':
-        if right:
-            win.blit(BoatRight,(x,y))
-            win.blit(farmer,(x,y-50))
-            if p2 != farmer:
-                win.blit(p2,(x+50,y-50))           
-        elif left:
-            win.blit(BoatLeft,(x,y))
-            win.blit(farmer,(x,y-50))
-            if p2 != farmer:
-                win.blit(p2,(x+50,y-50))            
-    else:
+    if p1 != 'Unknown':#mientras p1 sea diferente a desconocido
+        if right:#si es derecha
+            win.blit(BoatRight,(x,y))#moverá el barco a la derecha
+            win.blit(farmer,(x,y-50))#mover el granjero junto con el barco
+            if p2 != farmer:#si el granjero es diferente a p2
+                win.blit(p2,(x+50,y-50))#p2 cambiará de posición           
+        elif left:#si es izquierda
+            win.blit(BoatLeft,(x,y))#moverá el barco a la izquierda
+            win.blit(farmer,(x,y-50))#moverá el granjero junto con el barco
+            if p2 != farmer:#si el granjero es diferente a p2
+                win.blit(p2,(x+50,y-50))#p2 cambiará de posición            
+    else:#de lo contrario
         win.blit(char,(x, y))
-    pygame.display.update()
+    pygame.display.update()#actualizar el display
 
-def get_characters(d, p1, p2):
-    if p2 == 'Zorro':
+def get_characters(d, p1, p2):#función para los personajes dentro del barco
+    if p2 == 'Zorro':#si p2 es igual a zorro, el character será fox
         character = fox
-    elif p2 == 'Maiz':
+    elif p2 == 'Maiz'::#si p2 es igual a maiz, el character será corn
         character = corn
-    elif p2 == 'Ganzo':
+    elif p2 == 'Ganzo'::#si p2 es igual a ganzo, el character será duck
         character = duck
-    else:
-        character = farmer
-    return (d, farmer, character)
+    else:#de lo contrario
+        character = farmer #el character será farmer lo que indicaría que va solo en el barco
+    return (d, farmer, character)#regresando los que van en el barco
 
-def Embark_characters(B, p1, p2):
-    if p1 in B:
-        B.remove(p1)     
+def Embark_characters(B, p1, p2):#funcion para la embarcación en el lado B
+    if p1 in B:#mientras p1 se encuentre en B
+        B.remove(p1)#se elimina p1 en B     
     if p2 in B:
         B.remove(p2)
  
