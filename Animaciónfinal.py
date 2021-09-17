@@ -34,9 +34,9 @@ def redrawGameWindow(Dir, p1, p2):#funcion de los lados A y B de la animación
 def get_characters(d, p1, p2):#función para los personajes dentro del barco
     if p2 == 'Zorro':#si p2 es igual a zorro, el character será fox
         character = fox
-    elif p2 == 'Maiz'::#si p2 es igual a maiz, el character será corn
+    elif p2 == 'Maiz':#si p2 es igual a maiz, el character será corn
         character = corn
-    elif p2 == 'Ganzo'::#si p2 es igual a ganzo, el character será duck
+    elif p2 == 'Ganzo':#si p2 es igual a ganzo, el character será duck
         character = duck
     else:#de lo contrario
         character = farmer #el character será farmer lo que indicaría que va solo en el barco
