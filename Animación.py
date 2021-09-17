@@ -45,50 +45,50 @@ def get_characters(d, p1, p2):#función para los personajes dentro del barco
 def Embark_characters(B, p1, p2):#funcion para la embarcación en el lado B
     if p1 in B:#mientras p1 se encuentre en B
         B.remove(p1)#se elimina p1 en B     
-    if p2 in B:
-        B.remove(p2)
+if p2 in B: 
+        B.remove(p2) #si el ganzo/zorro/maíz se encuentra en el barco removemos del lado B al ganzo/zorro/maíz.
  
-def Disembark_characters(A, p1, p2):
+def Disembark_characters(A, p1, p2): #Función para que un personaje se baje de un barco al otro lado del lago.
     if p1 not in A:
-        A.append(p1)
+        A.append(p1) #si el granjero se encuentra en el barco removemos del lado B al granjero
     if p2 not in A:
         A.append(p2)
     
-def HCR_animacion(P):
-    global x, y, left, right, vel
-    global Side_A, Side_B
+def HCR_animacion(P): #Función para mover lo que hay en la animación
+    global x, y, left, right, vel #funciones globales que seguiremos usando, coordenadas x,y, izquierda, derecha y la velocidad en la que se mueve
+    global Side_A, Side_B #funciones globales que seguiremos usando, Lado A, Lado B
 
-    clock = pygame.time.Clock()
+    clock = pygame.time.Clock() #Creamos un reloj dentro de pygame
     run = True
     move = 0
     while run:
-        clock.tick(27)
+        clock.tick(27) #El reloj contará 27 milisegundos
         
         for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT]:
+            if event.type == pygame.QUIT: 
+                run = False #Cuando se presionen las teclas el juego se cerrará
+        keys = pygame.key.get_pressed() #Agregamos una función para que detecte cuando se presionen teclas
+        if keys[pygame.K_LEFT]: #Función cuando la tecla es la izquierda
             left = True
-            right = False
+            right = False #Cuando la tecla izquierda sea presionada el personaje se moverá en esa diección y restringe el movimiento a la derecha
             if move < len(P):
                 direction, p1, p2 = get_characters(P[move], P[move + 1], P[move + 2])
-                Embark_characters(Side_B, p1, p2)
-                for step in range(65):
-                    x -= vel
-                    redrawGameWindow(direction, p1, p2)
-                    pygame.time.delay(70)
-                move += 3
-                Disembark_characters(Side_A, p1, p2)
+                Embark_characters(Side_B, p1, p2) #Embarcamos a los personajes que elijamos del lado correspondiente
+                for step in range(65): #Hacemos un rango de espacio para que se mueva nuestro personaje
+                    x -= vel #Removemos la distancia de x y lo agregamos a la velocidad
+                    redrawGameWindow(direction, p1, p2) #Cambiamos el tamaño de la ventana para acomodar en los personajes
+                    pygame.time.delay(70) #Hacemos un retraso en el reloj para que no se desfase
+                move += 3 #Agregamos 3 al valor de movimiento
+                Disembark_characters(Side_A, p1, p2) #Llamamos a la función para que desenbarquen todos los personajes a la vez en el lado correspondiente
 
-        elif keys[pygame.K_RIGHT]:
+        elif keys[pygame.K_RIGHT]: #Función cuando la tecla es la derecha
             right = True
-            left = False
+            left = False #Cuando presionas la tecla derecha, el personaje irá en esa dirección y se bloquea movimiento hacia la izquierda
             if move < len(P):
                 direction, p1, p2 = get_characters(P[move], P[move + 1], P[move + 2])
-                Embark_characters(Side_A, p1, p2)
-                for step in range(65):
-                    x += vel
+                Embark_characters(Side_A, p1, p2) #Embarcamos a los personajes que elijamos del lado correspondiente
+                for step in range(65): #Hacemos un rango de espacio para que se mueva nuestro personaje
+                    x += vel #Removemos la distancia de x y lo agregamos a la velocidad
                     redrawGameWindow(direction, p1, p2)
                     pygame.time.delay(70)
                 move += 3#Se le suma al valor de move un 3
