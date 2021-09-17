@@ -25,6 +25,8 @@ Lenguaje implementado:
 Librerias utilizadas:
 -Pygame 2.0.1
 -random
+-matplotlib
+-pyplot
 
 Implementacion:
 Para la creacion de la animacion era necesario primero resolver el problema, teniendo esto en mente el proyecto se dividio en 2 partes:
