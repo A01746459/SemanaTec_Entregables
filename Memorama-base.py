@@ -20,6 +20,7 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
 contador=0
+cont=0
 
 def square(x, y):
     "Draw white square with black outline at (x, y)."
@@ -49,6 +50,7 @@ def tap(x, y):
     spot = index(x, y)
     mark = state['mark']
     global contador
+    global cont
     contador = contador + 1
     print("numero de Taps " + str(contador)) 
 
