@@ -45,7 +45,7 @@ def get_characters(d, p1, p2):#función para los personajes dentro del barco
 def Embark_characters(B, p1, p2):#funcion para la embarcación en el lado B
     if p1 in B:#mientras p1 se encuentre en B
         B.remove(p1)#se elimina p1 en B     
-if p2 in B: 
+    if p2 in B: 
         B.remove(p2) #si el ganzo/zorro/maíz se encuentra en el barco removemos del lado B al ganzo/zorro/maíz.
  
 def Disembark_characters(A, p1, p2): #Función para que un personaje se baje de un barco al otro lado del lago.
