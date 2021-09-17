@@ -58,7 +58,9 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
-
+        cont = cont + 1
+        if cont == 32:
+            exit("Fin del juego")
 
 def draw():
     "Draw image and tiles."
