@@ -42,3 +42,4 @@ las teclas derecha e izquierda.
 Experiencia trabajando en Github:
 El uso de Github en nuestro caso, es para poder agregar nuestras partes y unirlas, tratamos de usar todas las funciones de la mejor manera posible
 hubo ocasiones en las cuales se tuvo algunos problemas pero en general siempre se trato de hacer uso de todas las herramientas posibles.
+Debido al corto tamaño o complejidad de cada programa, github no fue muy util, replit puede ser una herramienta un poco más agil y eficaz, ya que los integrantes podemos trabajar y editar los archivos al mismo tiempo. Sin emabrgo, github fue de suma utilidad a la hora de subir al repositorio más de un archivo. 
